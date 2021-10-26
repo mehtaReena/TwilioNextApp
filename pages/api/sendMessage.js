@@ -1,9 +1,9 @@
-
+require('dotenv').config();
 import twilio from 'twilio';
 
 export default function sendMessage(req,res) {
-  const accountSid = 'AC2d9fb601e69980520399292a0ac3a532';
-  const token = 'bcf4c3c3be2d05d8cc4def296ef9cf05';
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const token = process.env.TOKEN_SECRET;
   const client = twilio(accountSid, token);
   const { phone, message } = req.body;
   // console.log(phone, message);
